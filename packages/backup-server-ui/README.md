@@ -2,7 +2,7 @@
 
 # Moox BackupServerUi
 
-Filament UI for Spatie Laravel Backup Server.
+Filament UI for Spatie Laravel Backup Server. Needs a license key for the paid package from https://spatie.be.
 
 ## Quick Installation
 

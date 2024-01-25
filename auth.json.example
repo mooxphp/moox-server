@@ -1,0 +1,8 @@
+{
+    "http-basic": {
+        "satis.spatie.be": {
+            "username": "mail address",
+            "password": "license key"
+        }
+    }
+}

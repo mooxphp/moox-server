@@ -53,6 +53,13 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->plugins([
+                \Moox\BackupServerUi\BackupLogItemPlugin::make(),
+                \Moox\BackupServerUi\BackupPlugin::make(),
+                \Moox\BackupServerUi\DestinationPlugin::make(),
+                \Moox\BackupServerUi\SourcePlugin::make(),
+
             ]);
     }
 }

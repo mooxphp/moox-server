@@ -1,0 +1,19 @@
+includes:
+    - phpstan-baseline.neon
+
+parameters:
+    level: 5
+    paths:
+        - packages
+        - app
+    excludePaths:
+        - 'packages/*/vendor/*'
+    ignoreErrors:
+        -
+            # Builder(s) are packages not wired with Composer. If they were composered, PHPStan would not throw this error!
+            messages:
+                - '#^Parameter \#1 \$view of function view expects view-string|null, string given.$#'
+            paths:
+                - _other/builder/*
+            reportUnmatched: false
+    tmpDir: build/phpstan

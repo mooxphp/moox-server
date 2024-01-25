@@ -100,7 +100,7 @@ class BackupLogItemPlugin implements Plugin
      */
     public function getResource(): string
     {
-        return $this->resource ?? config('backup-server-ui.resources.backup-server-ui.resource');
+        return $this->resource ?? config('backup-server-ui.resources.backup-log.resource');
     }
 
     /**
@@ -118,7 +118,7 @@ class BackupLogItemPlugin implements Plugin
      */
     public function getLabel(): ?string
     {
-        return $this->evaluate($this->label) ?? config('backup-server-ui.resources.backup-server-ui.label');
+        return $this->evaluate($this->label) ?? config('backup-server-ui.resources.backup-log.label');
     }
 
     /**
@@ -136,7 +136,7 @@ class BackupLogItemPlugin implements Plugin
      */
     public function getPluralLabel(): ?string
     {
-        return $this->evaluate($this->pluralLabel) ?? config('backup-server-ui.resources.backup-server-ui.plural_label');
+        return $this->evaluate($this->pluralLabel) ?? config('backup-server-ui.resources.backup-log.plural_label');
     }
 
     /**
@@ -154,7 +154,7 @@ class BackupLogItemPlugin implements Plugin
      */
     public function getNavigationGroup(): ?string
     {
-        return $this->navigationGroup ?? config('backup-server-ui.resources.backup-server-ui.navigation_group');
+        return $this->navigationGroup ?? config('backup-server-ui.resources.backup-log.navigation_group');
     }
 
     /**
@@ -172,7 +172,7 @@ class BackupLogItemPlugin implements Plugin
      */
     public function getNavigationIcon(): ?string
     {
-        return $this->navigationIcon ?? config('backup-server-ui.resources.backup-server-ui.navigation_icon');
+        return $this->navigationIcon ?? config('backup-server-ui.resources.backup-log.navigation_icon');
     }
 
     /**
@@ -190,7 +190,7 @@ class BackupLogItemPlugin implements Plugin
      */
     public function getNavigationSort(): ?int
     {
-        return $this->navigationSort ?? config('backup-server-ui.resources.backup-server-ui.navigation_sort');
+        return $this->navigationSort ?? config('backup-server-ui.resources.backup-log.navigation_sort');
     }
 
     /**
@@ -208,7 +208,7 @@ class BackupLogItemPlugin implements Plugin
      */
     public function getNavigationCountBadge(): ?bool
     {
-        return $this->navigationCountBadge ?? config('backup-server-ui.resources.backup-server-ui.navigation_count_badge');
+        return $this->navigationCountBadge ?? config('backup-server-ui.resources.backup-log.navigation_count_badge');
     }
 
     /**
@@ -226,7 +226,7 @@ class BackupLogItemPlugin implements Plugin
      */
     public function shouldRegisterNavigation(): bool
     {
-        return $this->navigation ?? config('backup-server-ui.resources.backup-server-ui.enabled');
+        return $this->navigation ?? config('backup-server-ui.resources.backup-log.enabled');
     }
 
     /**

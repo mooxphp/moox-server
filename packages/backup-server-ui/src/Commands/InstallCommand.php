@@ -25,7 +25,7 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Installs Moox BackupServerUi, publishes configuration, migrations and registers plugins.';
+    protected $description = 'Installs Moox BackupServerUi, publishes configuration and registers plugins.';
 
     /**
      * Execute the console command.
@@ -35,8 +35,6 @@ class InstallCommand extends Command
         $this->art();
         $this->welcome();
         $this->publish_configuration();
-        $this->publish_migrations();
-        $this->run_migrations();
         $this->register_plugins();
         $this->finish();
     }
