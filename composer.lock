@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f9e76fdab60f03ed5076ac9858a21b7",
+    "content-hash": "f691f500af071e65c78be0143a147c22",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -2142,6 +2142,80 @@
             "time": "2023-12-03T19:50:20+00:00"
         },
         {
+            "name": "invaders-xx/filament-jsoneditor",
+            "version": "3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/invaders-xx/filament-jsoneditor.git",
+                "reference": "d34e5ec15acb4dd217d74b1d00eaa11bec4f6183"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/invaders-xx/filament-jsoneditor/zipball/d34e5ec15acb4dd217d74b1d00eaa11bec4f6183",
+                "reference": "d34e5ec15acb4dd217d74b1d00eaa11bec4f6183",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0",
+                "illuminate/contracts": "^8.74|^9.0|^10.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.9.2"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^6.0",
+                "nunomaduro/larastan": "^2.0.1",
+                "orchestra/testbench": "^7.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "InvadersXX\\FilamentJsoneditor\\FilamentJsoneditorServiceProvider"
+                    ],
+                    "aliases": {
+                        "FilamentJsoneditor": "InvadersXX\\FilamentJsoneditor\\Facades\\FilamentJsoneditor"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "InvadersXX\\FilamentJsoneditor\\": "src",
+                    "InvadersXX\\FilamentJsoneditor\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Vincent",
+                    "email": "envahisseur@gmail.com",
+                    "role": "Owner"
+                }
+            ],
+            "description": "Filament's JSON Editor input",
+            "homepage": "https://github.com/invaders-xx/filament-jsoneditor",
+            "keywords": [
+                "filament-jsoneditor",
+                "invaders-xx",
+                "jsoneditor",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/invaders-xx/filament-jsoneditor/issues",
+                "source": "https://github.com/invaders-xx/filament-jsoneditor/tree/3.1"
+            },
+            "time": "2023-11-13T12:11:14+00:00"
+        },
+        {
             "name": "kirschbaum-development/eloquent-power-joins",
             "version": "3.4.0",
             "source": {
@@ -2407,6 +2481,84 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2024-01-23T15:07:56+00:00"
+        },
+        {
+            "name": "laravel/horizon",
+            "version": "v5.22.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/horizon.git",
+                "reference": "151f7fc544fd7711499512b736b30036dfaa5bc0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/151f7fc544fd7711499512b736b30036dfaa5bc0",
+                "reference": "151f7fc544fd7711499512b736b30036dfaa5bc0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-pcntl": "*",
+                "ext-posix": "*",
+                "illuminate/contracts": "^8.17|^9.0|^10.0|^11.0",
+                "illuminate/queue": "^8.17|^9.0|^10.0|^11.0",
+                "illuminate/support": "^8.17|^9.0|^10.0|^11.0",
+                "nesbot/carbon": "^2.17",
+                "php": "^7.3|^8.0",
+                "ramsey/uuid": "^4.0",
+                "symfony/error-handler": "^5.0|^6.0|^7.0",
+                "symfony/process": "^5.0|^6.0|^7.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^9.0|^10.4",
+                "predis/predis": "^1.1|^2.0"
+            },
+            "suggest": {
+                "ext-redis": "Required to use the Redis PHP driver.",
+                "predis/predis": "Required when not using the Redis PHP driver (^1.1|^2.0)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Horizon\\HorizonServiceProvider"
+                    ],
+                    "aliases": {
+                        "Horizon": "Laravel\\Horizon\\Horizon"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Horizon\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Dashboard and code-driven configuration for Laravel queues.",
+            "keywords": [
+                "laravel",
+                "queue"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/horizon/issues",
+                "source": "https://github.com/laravel/horizon/tree/v5.22.0"
+            },
+            "time": "2024-01-16T15:06:40+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -3663,6 +3815,72 @@
             "transport-options": {
                 "relative": true
             }
+        },
+        {
+            "name": "moox/jobs",
+            "version": "2.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mooxphp/jobs.git",
+                "reference": "cda2bcf22b993b4d59b340a407fcde27151a6fa4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mooxphp/jobs/zipball/cda2bcf22b993b4d59b340a407fcde27151a6fa4",
+                "reference": "cda2bcf22b993b4d59b340a407fcde27151a6fa4",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0",
+                "invaders-xx/filament-jsoneditor": "^3.0",
+                "php": "^8.0.2",
+                "spatie/laravel-package-tools": "^1.9.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Moox\\Jobs\\JobsServiceProvider",
+                        "Moox\\Jobs\\JobManagerProvider"
+                    ],
+                    "aliases": {
+                        "JobMonitor": "Moox\\Jobs\\JobManagerProvider\\Facade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Moox\\Jobs\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alf Drollinger",
+                    "email": "alf@drollinger.info",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Manage Job Queues, Failed Jobs and Batches in Filament.",
+            "homepage": "https://github.com/mooxphp/jobs",
+            "keywords": [
+                "batches",
+                "failed-jobs",
+                "filament",
+                "jobs",
+                "laravel",
+                "monitor",
+                "queues",
+                "redis"
+            ],
+            "support": {
+                "issues": "https://github.com/mooxphp/jobs/issues",
+                "source": "https://github.com/mooxphp/jobs/tree/2.0.8"
+            },
+            "time": "2024-01-11T10:40:23+00:00"
         },
         {
             "name": "nathanheffley/laravel-slack-blocks",

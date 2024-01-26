@@ -12,7 +12,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('backup-server:dispatch-backups')->everyMinute();
+        $schedule->command('backup-server:cleanup')->daily();
+        $schedule->command('backup-server:monitor')->daily();
     }
 
     /**

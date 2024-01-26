@@ -46,11 +46,11 @@ return [
         'notifiable' => \Spatie\BackupServer\Notifications\Notifiable::class,
 
         'mail' => [
-            'to' => 'your@example.com',
+            'to' => 'alf@drollinger.info',
 
             'from' => [
-                'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-                'name' => env('MAIL_FROM_NAME', 'Example'),
+                'address' => env('MAIL_FROM_ADDRESS', 'backupserver@moox.org'),
+                'name' => env('MAIL_FROM_NAME', 'Moox Backup Server'),
             ],
         ],
 

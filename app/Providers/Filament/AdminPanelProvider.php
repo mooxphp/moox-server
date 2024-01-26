@@ -55,10 +55,15 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->plugins([
-                \Moox\BackupServerUi\BackupLogItemPlugin::make(),
                 \Moox\BackupServerUi\BackupPlugin::make(),
-                \Moox\BackupServerUi\DestinationPlugin::make(),
                 \Moox\BackupServerUi\SourcePlugin::make(),
+                \Moox\BackupServerUi\DestinationPlugin::make(),
+                \Moox\BackupServerUi\BackupLogItemPlugin::make(),
+
+                \Moox\Jobs\JobsPlugin::make(),
+                \Moox\Jobs\JobsFailedPlugin::make(),
+                \Moox\Jobs\JobsBatchesPlugin::make(),
+                \Moox\Jobs\JobsWaitingPlugin::make(),
 
             ]);
     }
