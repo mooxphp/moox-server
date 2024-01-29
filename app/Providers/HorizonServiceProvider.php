@@ -30,6 +30,7 @@ class HorizonServiceProvider extends HorizonApplicationServiceProvider
     {
         Gate::define('viewHorizon', function ($user = null) {
             // return Auth::guard('admin')->check();
+            return true;
         });
     }
 }
