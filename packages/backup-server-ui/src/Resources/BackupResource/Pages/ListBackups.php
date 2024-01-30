@@ -2,7 +2,7 @@
 
 namespace Moox\BackupServerUi\Resources\BackupResource\Pages;
 
-use Filament\Actions\CreateAction;
+use Filament\Actions\Action;
 use Filament\Resources\Pages\ListRecords;
 use Moox\BackupServerUi\Resources\BackupResource;
 
@@ -12,6 +12,6 @@ class ListBackups extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [CreateAction::make()];
+        return [Action::make()->name('backup')->label(__('Manual Backup'))];
     }
 }
