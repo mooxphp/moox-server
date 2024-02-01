@@ -184,10 +184,11 @@ class BackupResource extends Resource
                     ->limit(50)
                     ->badge()
                     ->sortable()
-                    ->formatStateUsing(fn (string $state): string => __("jobs::translations.{$state}"))
+                    ->formatStateUsing(fn (string $state): string => __("backup-server-ui::translations.{$state}"))
                     ->color(fn (string $state): string => match ($state) {
-                        'active' => 'success',
+                        'completed' => 'success',
                         'failed' => 'danger',
+                        'pending' => 'warning',
                         default => 'secondary',
                     }),
                 Tables\Columns\TextColumn::make('source.name')

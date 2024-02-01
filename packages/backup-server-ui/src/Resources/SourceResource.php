@@ -277,10 +277,17 @@ class SourceResource extends Resource
         return $table
             ->poll('60s')
             ->columns([
-                TextColumn::make('status')
-                    ->toggleable()
-                    ->searchable()
-                    ->limit(50),
+                IconColumn::make('status')
+                    ->icon(fn (string $state): string => match ($state) {
+                        '' => 'heroicon-o-question-mark-circle',
+                        'active' => 'heroicon-o-play',
+                        'deleting' => 'heroicon-o-trash',
+                    })
+                    ->colors([
+                        'secondary',
+                        'warning' => 'deleting',
+                        'success' => 'active',
+                    ]),
                 IconColumn::make('healthy')
                     ->icon(fn (string $state): string => match ($state) {
                         '' => 'heroicon-o-x-circle',
