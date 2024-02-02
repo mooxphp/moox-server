@@ -156,9 +156,10 @@ class SourceResource extends Resource
 
                     Select::make('destination_id')
                         ->rules(['exists:backup_server_destinations,id'])
-                        ->nullable()
                         ->relationship('destination', 'name')
                         ->searchable()
+                        ->preload()
+                        ->required()
                         ->placeholder('Destination')
                         ->columnSpan([
                             'default' => 12,
