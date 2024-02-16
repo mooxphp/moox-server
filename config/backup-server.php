@@ -142,7 +142,7 @@ return [
      * Here you can specify on which connection the backup server jobs will be dispatched.
      * Leave empty to use the app default's env('QUEUE_CONNECTION')
      */
-    'queue_connection' => '',
+    'queue_connection' => 'backup-server-redis',
 
     'jobs' => [
         'perform_backup_job' => [
