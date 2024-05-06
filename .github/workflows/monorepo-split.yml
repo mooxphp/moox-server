@@ -17,6 +17,7 @@ jobs:
       matrix:
         package:
           - backup-server-ui
+          - forge-servers
 
     steps:
       - uses: actions/checkout@v4

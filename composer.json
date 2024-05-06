@@ -26,6 +26,7 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "moox/backup-server-ui": "dev-main",
+        "moox/forge-servers": "dev-main",
         "moox/jobs": "^2.0",
         "spatie/laravel-backup-server": "^3.1",
         "symfony/brevo-mailer": "^7.0",
