@@ -1,12 +1,12 @@
 <?php
 
-namespace Moox\Builder\Models;
+namespace Moox\ForgeServer\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model
+class ForgeServer extends Model
 {
-    protected $table = 'items';
+    protected $table = 'forge_servers';
 
     protected $fillable = [
         'name',
