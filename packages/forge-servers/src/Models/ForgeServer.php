@@ -9,15 +9,25 @@ class ForgeServer extends Model
     protected $table = 'forge_servers';
 
     protected $fillable = [
-        'name',
-        'started_at',
-        'finished_at',
-        'failed',
+        'title',
+        'forge_id',
+        'ip_address',
+        'type',
+        'provider',
+        'region',
+        'ubuntu_ver',
+        'db_status',
+        'redis_status',
+        'php_version',
+        'is_ready',
     ];
 
     protected $casts = [
-        'failed' => 'bool',
-        'started_at' => 'datetime',
-        'finished_at' => 'datetime',
+        'is_ready' => 'bool',
     ];
+
+    public function projects()
+    {
+        return $this->hasMany(ForgeProject::class, 'server_id', 'forge_id');
+    }
 }

@@ -65,6 +65,9 @@ class AdminPanelProvider extends PanelProvider
                 \Moox\Jobs\JobsBatchesPlugin::make(),
                 \Moox\Jobs\JobsWaitingPlugin::make(),
 
+                \Moox\ForgeServer\ForgeServerPlugin::make(),
+                \Moox\ForgeServer\ForgeProjectPlugin::make(),
+
             ]);
     }
 }

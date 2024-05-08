@@ -1,14 +1,14 @@
 <?php
 
-namespace Moox\ForgeServer\Resources\ForgeServerResource\Pages;
+namespace Moox\ForgeServer\Resources\ForgeProjectResource\Pages;
 
 use Filament\Resources\Pages\ListRecords;
-use Moox\ForgeServer\Resources\ForgeServerResource;
-use Moox\ForgeServer\Resources\ForgeServerResource\Widgets\ForgeServerWidgets;
+use Moox\ForgeServer\Resources\ForgeProjectResource;
+use Moox\ForgeServer\Resources\ForgeProjectResource\Widgets\ForgeProjectWidgets;
 
 class ListPage extends ListRecords
 {
-    public static string $resource = ForgeServerResource::class;
+    public static string $resource = ForgeProjectResource::class;
 
     public function getActions(): array
     {
@@ -18,7 +18,7 @@ class ListPage extends ListRecords
     public function getHeaderWidgets(): array
     {
         return [
-            //ForgeServerWidgets::class,
+            //ForgeProjectWidgets::class,
         ];
     }
 

@@ -2,21 +2,21 @@
 
 namespace Moox\ForgeServer\Resources;
 
+use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Moox\ForgeServer\Models\ForgeServer;
-use Moox\ForgeServer\Resources\ForgeServerResource\Pages\ListPage;
-use Moox\ForgeServer\Resources\ForgeServerResource\Widgets\ForgeServerWidgets;
+use Moox\ForgeServer\Models\ForgeProject;
+use Moox\ForgeServer\Resources\ForgeProjectResource\Pages\ListPage;
+use Moox\ForgeServer\Resources\ForgeProjectResource\Widgets\ForgeProjectWidgets;
 
-class ForgeServerResource extends Resource
+class ForgeProjectResource extends Resource
 {
-    protected static ?string $model = ForgeServer::class;
+    protected static ?string $model = ForgeProject::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -27,28 +27,24 @@ class ForgeServerResource extends Resource
                 TextInput::make('title')
                     ->maxLength(255)
                     ->required(),
-                TextInput::make('forge_id')
+                TextInput::make('url')
                     ->maxLength(255)
                     ->required(),
-                TextInput::make('ip_address')
+                TextInput::make('server_id')
                     ->maxLength(255)
                     ->required(),
-                TextInput::make('type')
-                    ->maxLength(255),
-                TextInput::make('provider')
-                    ->maxLength(255),
-                TextInput::make('region')
-                    ->maxLength(255),
-                TextInput::make('ubuntu_ver')
-                    ->maxLength(255),
-                TextInput::make('db_status')
-                    ->maxLength(255),
-                TextInput::make('redis_status')
-                    ->maxLength(255),
-                TextInput::make('php_version')
-                    ->maxLength(255),
-                Toggle::make('is_ready')
+                TextInput::make('site_id')
+                    ->maxLength(255)
                     ->required(),
+                TextInput::make('behind')
+                    ->maxLength(255),
+                DateTimePicker::make('last_deployment'),
+                TextInput::make('last_commit')
+                    ->maxLength(255),
+                TextInput::make('commit_message')
+                    ->maxLength(255),
+                TextInput::make('commit_author')
+                    ->maxLength(255),
             ]);
     }
 
@@ -57,38 +53,42 @@ class ForgeServerResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('title')
-                    ->label(__('forge-servers::translations.title'))
+                    ->label(__('forge-servers::translations.name'))
                     ->sortable()
                     ->searchable(),
-                TextColumn::make('forge_id')
-                    ->label(__('forge-servers::translations.forge_id'))
+                TextColumn::make('server.title')
+                    ->label(__('forge-servers::translations.server'))
                     ->sortable()
                     ->searchable(),
-                TextColumn::make('ip_address')
-                    ->label(__('forge-servers::translations.ip_address'))
+                TextColumn::make('site_id')
+                    ->label(__('forge-servers::translations.site_id'))
                     ->sortable()
                     ->searchable(),
-                TextColumn::make('type')
-                    ->label(__('forge-servers::translations.type'))
-                    ->sortable(),
-                TextColumn::make('provider')
-                    ->label(__('forge-servers::translations.provider'))
+                TextColumn::make('behind')
+                    ->label(__('forge-servers::translations.behind'))
                     ->sortable()
                     ->searchable(),
-                TextColumn::make('region')
-                    ->label(__('forge-servers::translations.region'))
+                TextColumn::make('last_deployment')
+                    ->label(__('forge-servers::translations.last_deployment'))
                     ->sortable()
                     ->searchable(),
-                TextColumn::make('ubuntu_ver')
-                    ->label(__('forge-servers::translations.ubuntu_ver'))
-                    ->sortable(),
-                TextColumn::make('php_version')
-                    ->label(__('forge-servers::translations.php_version'))
-                    ->sortable(),
+                TextColumn::make('last_commit')
+                    ->label(__('forge-servers::translations.last_commit'))
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('commit_message')
+                    ->label(__('forge-servers::translations.commit_message'))
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('commit_author')
+                    ->label(__('forge-servers::translations.commit_author'))
+                    ->sortable()
+                    ->searchable(),
             ])
             ->defaultSort('title', 'desc')
             ->actions([
-                Action::make('Reboot')->url(fn ($record): string => "https://forge.laravel.com/api/v1/servers/{$record->forge_id}/reboot"),
+                Action::make('Deploy')->url(fn ($record): string => "{$record->url}"),
+
             ])
             ->bulkActions([
                 DeleteBulkAction::make(),
@@ -112,28 +112,28 @@ class ForgeServerResource extends Resource
     public static function getWidgets(): array
     {
         return [
-            ForgeServerWidgets::class,
+            ForgeProjectWidgets::class,
         ];
     }
 
     public static function getModelLabel(): string
     {
-        return __('forge-servers::translations.single');
+        return __('forge-servers::translations.project');
     }
 
     public static function getPluralModelLabel(): string
     {
-        return __('forge-servers::translations.plural');
+        return __('forge-servers::translations.projects');
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('forge-servers::translations.navigation_label');
+        return __('forge-servers::translations.projects');
     }
 
     public static function getBreadcrumb(): string
     {
-        return __('forge-servers::translations.breadcrumb');
+        return __('forge-servers::translations.projects');
     }
 
     public static function shouldRegisterNavigation(): bool

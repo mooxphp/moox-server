@@ -20,7 +20,7 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'mooxforge-servers:install';
+    protected $signature = 'mooxforgeservers:install';
 
     /**
      * The console command description.
@@ -116,8 +116,8 @@ class InstallCommand extends Command
 
             $pluginsToAdd = multiselect(
                 label: 'These plugins will be installed:',
-                options: ['ForgeServerPlugin'],
-                default: ['ForgeServerPlugin'],
+                options: ['ForgeServerPlugin', 'ForgeProjectPlugin'],
+                default: ['ForgeServerPlugin', 'ForgeProjectPlugin'],
             );
 
             $function = '::make(),';
