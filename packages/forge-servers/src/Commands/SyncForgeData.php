@@ -30,12 +30,12 @@ class SyncForgeData extends Command
                 $server = ForgeServer::updateOrCreate(
                     ['forge_id' => $serverData['id']],
                     [
-                        'title' => $serverData['name'],
+                        'name' => $serverData['name'],
                         'ip_address' => $serverData['ip_address'],
                         'type' => $serverData['type'],
                         'provider' => $serverData['provider'],
                         'region' => $serverData['region'],
-                        'ubuntu_ver' => $serverData['ubuntu_version'],
+                        'ubuntu_version' => $serverData['ubuntu_version'],
                         'db_status' => $serverData['db_status'],
                         'redis_status' => $serverData['redis_status'],
                         'php_version' => $serverData['php_version'],
@@ -55,7 +55,7 @@ class SyncForgeData extends Command
                         ['site_id' => $projectData['id']],
                         [
                             'title' => $projectData['name'],
-                            'url' => $projectData['deployment_url'],
+                            'deployment_url' => $projectData['deployment_url'],
                             'server_id' => $projectData['server_id'],
                         ]
                     );

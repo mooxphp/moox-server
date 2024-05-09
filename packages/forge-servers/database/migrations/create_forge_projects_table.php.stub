@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('forge_projects', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('url');
+            $table->string('name');
+            $table->string('deployment_url');
             $table->integer('server_id');
             $table->integer('site_id');
-            $table->tinyInteger('behind')->nullable();
             $table->timestamp('last_deployment')->nullable();
-            $table->string('last_commit')->nullable();
-            $table->string('commit_message')->nullable();
-            $table->string('commit_author')->nullable();
+            $table->tinyInteger('commits_behind')->nullable();
+            $table->string('last_commit_hash')->nullable();
+            $table->string('last_commit_message')->nullable();
+            $table->string('last_commit_author')->nullable();
             $table->timestamps();
         });
     }

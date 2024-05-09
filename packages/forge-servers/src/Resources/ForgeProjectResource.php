@@ -5,11 +5,15 @@ namespace Moox\ForgeServer\Resources;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\Action;
+use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Collection;
+use Moox\ForgeServer\Jobs\DeployProjectJob;
 use Moox\ForgeServer\Models\ForgeProject;
 use Moox\ForgeServer\Resources\ForgeProjectResource\Pages\ListPage;
 use Moox\ForgeServer\Resources\ForgeProjectResource\Widgets\ForgeProjectWidgets;
@@ -24,7 +28,7 @@ class ForgeProjectResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title')
+                TextInput::make('name')
                     ->maxLength(255)
                     ->required(),
                 TextInput::make('url')
@@ -52,11 +56,11 @@ class ForgeProjectResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title')
+                TextColumn::make('name')
                     ->label(__('forge-servers::translations.name'))
                     ->sortable()
                     ->searchable(),
-                TextColumn::make('server.title')
+                TextColumn::make('server.name')
                     ->label(__('forge-servers::translations.server'))
                     ->sortable()
                     ->searchable(),
@@ -64,8 +68,8 @@ class ForgeProjectResource extends Resource
                     ->label(__('forge-servers::translations.site_id'))
                     ->sortable()
                     ->searchable(),
-                TextColumn::make('behind')
-                    ->label(__('forge-servers::translations.behind'))
+                TextColumn::make('commits_behind')
+                    ->label(__('forge-servers::translations.commits_behind'))
                     ->sortable()
                     ->searchable(),
                 TextColumn::make('last_deployment')
@@ -73,25 +77,38 @@ class ForgeProjectResource extends Resource
                     ->sortable()
                     ->searchable(),
                 TextColumn::make('last_commit')
-                    ->label(__('forge-servers::translations.last_commit'))
+                    ->label(__('forge-servers::translations.last_commit_hash'))
                     ->sortable()
                     ->searchable(),
                 TextColumn::make('commit_message')
-                    ->label(__('forge-servers::translations.commit_message'))
+                    ->label(__('forge-servers::translations.last_commit_message'))
                     ->sortable()
                     ->searchable(),
                 TextColumn::make('commit_author')
-                    ->label(__('forge-servers::translations.commit_author'))
+                    ->label(__('forge-servers::translations.last_commit_author'))
                     ->sortable()
                     ->searchable(),
             ])
-            ->defaultSort('title', 'desc')
+            ->defaultSort('name', 'desc')
             ->actions([
-                Action::make('Deploy')->url(fn ($record): string => "{$record->url}"),
+                Action::make('deploy')
+                    ->label('Deploy')
+                    ->action(function ($record) {
+                        DeployProjectJob::dispatch($record, auth()->user());
+                        Notification::make()
+                            ->title('Deploying project '.$record->name)
+                            ->success()
+                            ->send();
+                    }),
 
             ])
             ->bulkActions([
                 DeleteBulkAction::make(),
+                BulkAction::make('reboot')
+                    ->requiresConfirmation()
+                    ->action(
+                        fn (Collection $records) => $records->each(
+                            fn ($record) => DeployProjectJob::dispatch($record, auth()->user()))),
             ]);
     }
 
@@ -112,7 +129,7 @@ class ForgeProjectResource extends Resource
     public static function getWidgets(): array
     {
         return [
-            ForgeProjectWidgets::class,
+            //ForgeProjectWidgets::class,
         ];
     }
 
@@ -128,7 +145,7 @@ class ForgeProjectResource extends Resource
 
     public static function getNavigationLabel(): string
     {
-        return __('forge-servers::translations.projects');
+        return __('forge-servers::translations.forge_projects');
     }
 
     public static function getBreadcrumb(): string

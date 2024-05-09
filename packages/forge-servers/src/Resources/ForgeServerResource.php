@@ -5,11 +5,15 @@ namespace Moox\ForgeServer\Resources;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\Action;
+use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Collection;
+use Moox\ForgeServer\Jobs\RebootServerJob;
 use Moox\ForgeServer\Models\ForgeServer;
 use Moox\ForgeServer\Resources\ForgeServerResource\Pages\ListPage;
 use Moox\ForgeServer\Resources\ForgeServerResource\Widgets\ForgeServerWidgets;
@@ -24,7 +28,7 @@ class ForgeServerResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title')
+                TextInput::make('name')
                     ->maxLength(255)
                     ->required(),
                 TextInput::make('forge_id')
@@ -56,8 +60,8 @@ class ForgeServerResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title')
-                    ->label(__('forge-servers::translations.title'))
+                TextColumn::make('name')
+                    ->label(__('forge-servers::translations.name'))
                     ->sortable()
                     ->searchable(),
                 TextColumn::make('forge_id')
@@ -79,19 +83,35 @@ class ForgeServerResource extends Resource
                     ->label(__('forge-servers::translations.region'))
                     ->sortable()
                     ->searchable(),
-                TextColumn::make('ubuntu_ver')
-                    ->label(__('forge-servers::translations.ubuntu_ver'))
+                TextColumn::make('ubuntu_version')
+                    ->label(__('forge-servers::translations.ubuntu_version'))
                     ->sortable(),
                 TextColumn::make('php_version')
                     ->label(__('forge-servers::translations.php_version'))
                     ->sortable(),
             ])
-            ->defaultSort('title', 'desc')
+            ->defaultSort('name', 'desc')
             ->actions([
-                Action::make('Reboot')->url(fn ($record): string => "https://forge.laravel.com/api/v1/servers/{$record->forge_id}/reboot"),
+                Action::make('reboot')
+                    ->label('Reboot')
+                    ->action(function ($record) {
+                        RebootServerJob::dispatch($record, auth()->user());
+                        Notification::make()
+                            ->title('Booting server '.$record->name)
+                            ->success()
+                            ->send();
+                    })
+                    ->requiresConfirmation()
+                    ->modalHeading('Reboot')
+                    ->modalDescription('Are you sure you\'d like to reboot this server?'),
             ])
             ->bulkActions([
                 DeleteBulkAction::make(),
+                BulkAction::make('reboot')
+                    ->requiresConfirmation()
+                    ->action(
+                        fn (Collection $records) => $records->each(
+                            fn ($record) => RebootServerJob::dispatch($record, auth()->user()))),
             ]);
     }
 
@@ -112,7 +132,7 @@ class ForgeServerResource extends Resource
     public static function getWidgets(): array
     {
         return [
-            ForgeServerWidgets::class,
+            //ForgeServerWidgets::class,
         ];
     }
 

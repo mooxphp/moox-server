@@ -24,7 +24,7 @@ class ListPage extends ListRecords
 
     public function getTitle(): string
     {
-        return __('forge-servers::translations.title');
+        return __('forge-servers::translations.forge_projects');
     }
 
     protected function getHeaderActions(): array

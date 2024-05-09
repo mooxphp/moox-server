@@ -9,15 +9,15 @@ class ForgeProject extends Model
     protected $table = 'forge_projects';
 
     protected $fillable = [
-        'title',
-        'url',
+        'name',
+        'deployment_url',
         'server_id',
         'site_id',
-        'behind',
         'last_deployment',
-        'commit',
-        'commit_message',
-        'commit_author',
+        'commits_behind',
+        'last_commit_hash',
+        'last_commit_message',
+        'last_commit_author',
     ];
 
     protected $casts = [

@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('forge_servers', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('name');
             $table->integer('forge_id');
             $table->string('ip_address');
             $table->string('type')->nullable();
             $table->string('provider')->nullable();
             $table->string('region')->nullable();
-            $table->string('ubuntu_ver')->nullable();
+            $table->string('ubuntu_version')->nullable();
             $table->string('db_status')->nullable();
             $table->string('redis_status')->nullable();
             $table->string('php_version')->nullable();

@@ -9,13 +9,13 @@ class ForgeServer extends Model
     protected $table = 'forge_servers';
 
     protected $fillable = [
-        'title',
+        'name',
         'forge_id',
         'ip_address',
         'type',
         'provider',
         'region',
-        'ubuntu_ver',
+        'ubuntu_version',
         'db_status',
         'redis_status',
         'php_version',
