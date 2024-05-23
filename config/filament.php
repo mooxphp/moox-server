@@ -25,7 +25,7 @@ return [
             'wssPort' => env('VITE_REVERB_PORT'),
             'authEndpoint' => '/broadcasting/auth',
             'disableStats' => true,
-            'encrypted' => true,
+            'encrypted' => false,
             'forceTLS' => false,
         ],
 
