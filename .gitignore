@@ -1,6 +1,7 @@
 /.phpunit.cache
 /node_modules
-/public/build
+# we want builds to be in the repo
+#/public/build
 /public/hot
 /public/storage
 /storage/*.key
