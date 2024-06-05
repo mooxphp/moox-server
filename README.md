@@ -42,7 +42,9 @@ The development app for Moox Backup Server UI, needs a License from Spatie for L
 
 ## Packages
 
-- Moox Backup Server
+- [Moox Backup Server UI](packages/backup-server-ui/README.md), - Filament UI for Spatie Laravel Backup Server
+
+- [Moox Devops](packages/devops/README.md) - deploy servers and projects in Laravel Forge
 
 ## Installation
 
