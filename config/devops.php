@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'doc_version' => '2.0.0',
+
     'navigation_sort' => 2001,
 
     'forge_api_key' => env('FORGE_API_KEY'),
