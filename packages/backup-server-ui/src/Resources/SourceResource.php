@@ -56,7 +56,7 @@ class SourceResource extends Resource
                     TextInput::make('name')
                         ->hintAction(function () {
                             if (config('backup-server-ui.backup_source.inline_help.fields.name') != '') {
-                                return HintAction::make('help')
+                                return Action::make('help')
                                     ->label(Config::get('backup-server-ui.backup_source.inline_help.fields.name.title', ''))
                                     ->icon(Config::get('backup-server-ui.backup_source.inline_help.icon', 'heroicon-o-question-mark-circle'))
                                     ->url(Config::get('backup-server-ui.backup_source.inline_help.fields.name.url'), true);
