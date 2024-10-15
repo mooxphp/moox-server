@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app['mail.manager']->extend('brevo', function ($config) {
             $configuration = $this->app->make('config');
 
-            return (new BrevoTransportFactory())->create(
+            return (new BrevoTransportFactory)->create(
                 Dsn::fromString($configuration->get('services.brevo.dsn'))
             );
         });
