@@ -211,14 +211,6 @@ return [
                 'balanceCooldown' => 3,
             ],
 
-            'backup-server' => [
-                'connection' => 'backup-server-redis',
-                'queue' => ['backup-server', 'backup-server-backup', 'backup-server-cleanup'],
-                'balance' => 'auto',
-                'processes' => 3,
-                'tries' => 1,
-                'timeout' => \Carbon\CarbonInterval::day()->totalSeconds,
-            ],
         ],
 
         'local' => [
