@@ -56,7 +56,7 @@ return [
 
     'prefix' => env(
         'HORIZON_PREFIX',
-        Str::slug(env('APP_NAME', 'laravel'), '_').'_horizon:'
+        Str::slug(env('APP_NAME', 'laravel'), '_') . '_horizon:'
     ),
 
     /*
@@ -192,6 +192,14 @@ return [
             'tries' => 1,
             'timeout' => 60,
             'nice' => 0,
+        ],
+        'backup-server' => [
+            'connection' => 'backup-server-redis',
+            'queue' => ['backup-server', 'backup-server-backup', 'backup-server-cleanup'],
+            'balance' => 'auto',
+            'processes' => 3,
+            'tries' => 1,
+            'timeout' => \Carbon\CarbonInterval::day()->totalSeconds,
         ],
     ],
 
