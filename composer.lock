@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "811cd64dfe490a53d6cd0e0d9cf9a682",
+    "content-hash": "1e7ca5da95dd3f6225289c222b71e17d",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -3021,35 +3021,31 @@
         },
         {
             "name": "laravel/slack-notification-channel",
-            "version": "v3.3.2",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/slack-notification-channel.git",
-                "reference": "5e04e4a0834b84650a207a76b7a67de8156d0b04"
+                "reference": "e0d4be5e01d443a69fa89f0a4cac6bd2eda2be8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/slack-notification-channel/zipball/5e04e4a0834b84650a207a76b7a67de8156d0b04",
-                "reference": "5e04e4a0834b84650a207a76b7a67de8156d0b04",
+                "url": "https://api.github.com/repos/laravel/slack-notification-channel/zipball/e0d4be5e01d443a69fa89f0a4cac6bd2eda2be8f",
+                "reference": "e0d4be5e01d443a69fa89f0a4cac6bd2eda2be8f",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "^7.0",
-                "illuminate/http": "^9.0|^10.0|^11.0",
-                "illuminate/notifications": "^9.0|^10.0|^11.0",
-                "illuminate/support": "^9.0|^10.0|^11.0",
-                "php": "^8.0"
+                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "illuminate/notifications": "~5.8.0|^6.0|^7.0|^8.0|^9.0|^10.0",
+                "php": "^7.1.3|^8.0"
             },
             "require-dev": {
                 "mockery/mockery": "^1.0",
-                "orchestra/testbench": "^7.0|^8.0|^9.0",
-                "phpstan/phpstan": "^1.10",
-                "phpunit/phpunit": "^9.0|^10.4"
+                "phpunit/phpunit": "^7.0|^8.0|^9.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.x-dev"
+                    "dev-master": "2.x-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -3080,9 +3076,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/slack-notification-channel/issues",
-                "source": "https://github.com/laravel/slack-notification-channel/tree/v3.3.2"
+                "source": "https://github.com/laravel/slack-notification-channel/tree/v2.5.0"
             },
-            "time": "2024-09-04T06:56:09+00:00"
+            "time": "2023-01-12T16:21:26+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -4252,6 +4248,67 @@
                 "source": "https://github.com/mooxphp/jobs/tree/2.0.9"
             },
             "time": "2024-02-06T17:20:32+00:00"
+        },
+        {
+            "name": "nathanheffley/laravel-slack-blocks",
+            "version": "v2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nathanheffley/laravel-slack-blocks.git",
+                "reference": "dc0795cfce554f27697e8cee3965b4b1dde956c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nathanheffley/laravel-slack-blocks/zipball/dc0795cfce554f27697e8cee3965b4b1dde956c8",
+                "reference": "dc0795cfce554f27697e8cee3965b4b1dde956c8",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.0|^7.0",
+                "laravel/slack-notification-channel": "^2.0",
+                "php": "^7.1.3|^8.0"
+            },
+            "require-dev": {
+                "illuminate/notifications": "~5.8.0|^6.0|^7.0|^8.0",
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^7.0|^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NathanHeffley\\LaravelSlackBlocks\\SlackChannelServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NathanHeffley\\LaravelSlackBlocks\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nathan Heffley",
+                    "email": "nathan@nathanheffley.com"
+                }
+            ],
+            "description": "Slack Blocks support for laravel notifications.",
+            "keywords": [
+                "blocks",
+                "laravel",
+                "notifications",
+                "slack"
+            ],
+            "support": {
+                "issues": "https://github.com/nathanheffley/laravel-slack-blocks/issues",
+                "source": "https://github.com/nathanheffley/laravel-slack-blocks/tree/v2.3.0"
+            },
+            "abandoned": "laravel/slack-notification-channel",
+            "time": "2020-12-01T19:20:19+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -6596,40 +6653,39 @@
         },
         {
             "name": "spatie/laravel-backup-server",
-            "version": "3.3.0",
+            "version": "3.1.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:spatie/laravel-backup-server.git",
-                "reference": "ee57e5cfa0d4445ac4d514025ec78ea3ab9f8e15"
+                "reference": "13763ee20b801d92579f904c02a4d7b74e2673bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://satis.spatie.be/dist/spatie/laravel-backup-server/spatie-laravel-backup-server-ee57e5cfa0d4445ac4d514025ec78ea3ab9f8e15-zip-df9e35.zip",
-                "reference": "ee57e5cfa0d4445ac4d514025ec78ea3ab9f8e15",
-                "shasum": "918ced570b07a8300196817c3c357ee8bf1d98aa"
+                "url": "https://satis.spatie.be/dist/spatie/laravel-backup-server/spatie-laravel-backup-server-13763ee20b801d92579f904c02a4d7b74e2673bf-zip-cbf71a.zip",
+                "reference": "13763ee20b801d92579f904c02a4d7b74e2673bf",
+                "shasum": "90b00cfc4cc3fd3edd5a57fa5acf8d36d43b70c8"
             },
             "require": {
-                "dragonmantank/cron-expression": "^3.3.3",
-                "illuminate/console": "^10.0|^11.0",
-                "illuminate/contracts": "^10.0|^11.0",
-                "illuminate/events": "^10.0|^11.0",
-                "illuminate/notifications": "^10.0|^11.0",
-                "illuminate/queue": "^10.0|^11.0",
-                "illuminate/support": "^10.0|^11.0",
-                "laravel/slack-notification-channel": "^3.2",
-                "php": "^8.2",
-                "spatie/regex": "^3.1.1",
-                "spatie/ssh": "^1.10"
+                "dragonmantank/cron-expression": "^3.0.2",
+                "illuminate/console": "^9.0|^10.0",
+                "illuminate/contracts": "^9.0|^10.0",
+                "illuminate/events": "^9.0|^10.0",
+                "illuminate/notifications": "^9.0|^10.0",
+                "illuminate/queue": "^9.0|^10.0",
+                "illuminate/support": "^9.0|^10.0",
+                "nathanheffley/laravel-slack-blocks": "^2.3",
+                "php": "^8.0",
+                "spatie/laravel-flash": "^1.4",
+                "spatie/regex": "^1.4",
+                "spatie/ssh": "^1.3"
             },
             "require-dev": {
-                "mockery/mockery": "^1.6.9",
-                "orchestra/testbench": "^8.0|^9.0",
-                "pestphp/pest": "^2.34",
-                "pestphp/pest-plugin-type-coverage": "^2.8",
-                "phpunit/phpunit": "^10.5.13|^11.0",
-                "spatie/docker": "^1.12",
-                "spatie/test-time": "^1.3.3",
-                "symfony/var-dumper": "^6.0|^7.0.4"
+                "mockery/mockery": "^1.4.2",
+                "orchestra/testbench": "^7.0|^8.0",
+                "phpunit/phpunit": "^9.4",
+                "spatie/docker": "^1.5",
+                "spatie/test-time": "^1.2",
+                "symfony/var-dumper": "^6.0"
             },
             "type": "library",
             "extra": {
@@ -6655,16 +6711,16 @@
             },
             "scripts": {
                 "test": [
-                    "vendor/bin/pest --compact"
-                ],
-                "test-coverage": [
-                    "vendor/bin/pest --coverage"
-                ],
-                "format": [
-                    "vendor/bin/pint"
+                    "vendor/bin/phpunit"
                 ],
                 "build-docker": [
                     "docker build -t spatie/laravel-backup-server-tests ./tests/docker"
+                ],
+                "test-coverage": [
+                    "vendor/bin/phpunit --coverage-html coverage"
+                ],
+                "format": [
+                    "php ./vendor/bin/php-cs-fixer fix --config .php_cs.dist.php"
                 ]
             },
             "authors": [
@@ -6682,10 +6738,71 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/laravel-backup-server/tree/3.3.0",
+                "source": "https://github.com/spatie/laravel-backup-server/tree/3.1.3",
                 "issues": "https://github.com/spatie/laravel-backup-server/issues"
             },
-            "time": "2024-06-12T08:39:00+00:00"
+            "time": "2024-03-15T10:27:07+00:00"
+        },
+        {
+            "name": "spatie/laravel-flash",
+            "version": "1.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-flash.git",
+                "reference": "6eb17846deeff5367581f5eba151f8b333b0b215"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-flash/zipball/6eb17846deeff5367581f5eba151f8b333b0b215",
+                "reference": "6eb17846deeff5367581f5eba151f8b333b0b215",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/session": "^8.0|^9.0|^10.0|^11.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.23|^7.0|^8.0|^9.0",
+                "phpunit/phpunit": "^9.4|^10.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Spatie\\Flash\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A lightweight package to flash messages",
+            "homepage": "https://github.com/spatie/laravel-flash",
+            "keywords": [
+                "laravel-flash",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-flash/issues",
+                "source": "https://github.com/spatie/laravel-flash/tree/1.10.0"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2024-02-27T15:18:02+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
@@ -6749,20 +6866,20 @@
         },
         {
             "name": "spatie/regex",
-            "version": "3.1.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/regex.git",
-                "reference": "d543de2019a0068e7b80da0ba24f1c51c7469303"
+                "reference": "1500ed75af430df3a32047494c43d79d45cf152b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/regex/zipball/d543de2019a0068e7b80da0ba24f1c51c7469303",
-                "reference": "d543de2019a0068e7b80da0ba24f1c51c7469303",
+                "url": "https://api.github.com/repos/spatie/regex/zipball/1500ed75af430df3a32047494c43d79d45cf152b",
+                "reference": "1500ed75af430df3a32047494c43d79d45cf152b",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.0|^8.1"
+                "php": "^7.3|^8.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.3"
@@ -6796,7 +6913,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/regex/issues",
-                "source": "https://github.com/spatie/regex/tree/3.1.1"
+                "source": "https://github.com/spatie/regex/tree/1.4.2"
             },
             "funding": [
                 {
@@ -6808,7 +6925,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-11-30T21:13:59+00:00"
+            "time": "2020-11-03T23:05:25+00:00"
         },
         {
             "name": "spatie/ssh",
