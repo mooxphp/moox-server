@@ -29,7 +29,7 @@
         "moox/backup-server-ui": "dev-main",
         "moox/devops": "dev-main",
         "moox/jobs": "^2.0",
-        "spatie/laravel-backup-server": "^3.1",
+        "spatie/laravel-backup-server": "^3.3",
         "symfony/brevo-mailer": "^7.0",
         "symfony/http-client": "^7.0"
     },
