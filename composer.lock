@@ -3931,10 +3931,10 @@
             "dist": {
                 "type": "path",
                 "url": "packages/backup-server-ui",
-                "reference": "798babaf6fb94446724b8d22807d2d011049fff6"
+                "reference": "1e837054e8e55b97980fc0d45c249e04a1ad4726"
             },
             "require": {
-                "moox/core": "^3.0"
+                "moox/core": "^3.0.3"
             },
             "type": "library",
             "extra": {
@@ -4057,10 +4057,10 @@
             "dist": {
                 "type": "path",
                 "url": "packages/devops",
-                "reference": "fdfb98610285a13888aaf1e9126703c62767f010"
+                "reference": "a631f61300bed9f8ab4eef670698c5718c13bbd5"
             },
             "require": {
-                "moox/core": "*"
+                "moox/core": "^3.0.3"
             },
             "type": "library",
             "extra": {
