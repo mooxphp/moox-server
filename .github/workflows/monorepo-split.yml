@@ -28,7 +28,7 @@ jobs:
         run: |
           if [ -f composer.json ]; then
             echo "Updating moox/core version in ${{ matrix.package }}"
-            sed -i 's/"moox\/core": "\*"/"moox\/core": "^2.1.6"/g' composer.json
+            sed -i 's/"moox\/core": "\*"/"moox\/core": "^3.0.3"/g' composer.json
           fi
 
       # Commit the updated composer.json (if there was a change)
@@ -39,7 +39,7 @@ jobs:
             git config --global user.name "mooxbot"
             git config --global user.email "bot@moox.org"
             git add composer.json
-            git commit -m "Update moox/core dependency to ^^2.1.6" || echo "No changes to commit"
+            git commit -m "Update moox/core dependency to ^^3.0.3" || echo "No changes to commit"
           fi
 
 
